@@ -1,9 +1,11 @@
 import axios from 'axios';
 
-const API_URL = 'http://127.0.0.1:5000/api';
+// Updated to your live Render URL
+const API_URL = 'https://blog-backend-72ss.onrender.com/api';
 
 const api = axios.create({
     baseURL: API_URL,
+    withCredentials: true, // Crucial for cross-origin requests
 });
 
 // Request interceptor to add token
@@ -24,12 +26,12 @@ api.interceptors.response.use(
     async (error) => {
         const originalRequest = error.config;
 
-        // specific 401 check, avoids infinite loops if refresh fails
-        if (error.response.status === 401 && !originalRequest._retry) {
+        if (error.response?.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true;
 
             try {
                 const refreshToken = localStorage.getItem('refreshToken');
+                // Use the live API_URL for the refresh call
                 const response = await axios.post(`${API_URL}/auth/refresh`, {
                     refreshToken,
                 });
@@ -38,9 +40,9 @@ api.interceptors.response.use(
                 localStorage.setItem('accessToken', accessToken);
 
                 api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+                originalRequest.headers['Authorization'] = `Bearer ${accessToken}`;
                 return api(originalRequest);
             } catch (err) {
-                // Logout if refresh fails
                 localStorage.removeItem('accessToken');
                 localStorage.removeItem('refreshToken');
                 localStorage.removeItem('user');
