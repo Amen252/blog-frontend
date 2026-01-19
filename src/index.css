@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+:root {
+    font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+    @keyframes gradient-x {
+
+        0%,
+        100% {
+            background-size: 200% 200%;
+            background-position: left center;
+        }
+
+        50% {
+            background-size: 200% 200%;
+            background-position: right center;
+        }
+    }
+
+    .animate-gradient-x {
+        animation: gradient-x 15s ease infinite;
+    }
+}
