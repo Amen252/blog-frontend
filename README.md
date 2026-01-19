@@ -13,7 +13,7 @@ Below are the latest screenshots of the platform's responsive design:
 
 | Desktop View | Mobile Drawer |
 | :--- | :--- |
-| ![Home Page](./public/screenshots/image1.png) | ![Mobile Menu](./public/screenshots/image2.png) |
+| ![Home Page](./public/screenshots/image1.jpeg) | ![Mobile Menu](./public/screenshots/image2.jpeg) |
 
 ---
 
