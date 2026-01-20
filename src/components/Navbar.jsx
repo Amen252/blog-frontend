@@ -33,7 +33,7 @@ const Navbar = () => {
                         <Link to="/" className="text-sm font-bold text-slate-500 hover:text-black transition-colors">home</Link>
                         <Link to="/blogs" className="text-sm font-bold text-slate-500 hover:text-black transition-colors">archive</Link>
                         {user && (
-                            <Link to="/create" className="text-sm font-bold text-slate-500 hover:text-black transition-colors">write</Link>
+                            <Link to="/create" className="text-sm font-bold text-slate-500 hover:text-black transition-colors">Create Blog</Link>
                         )}
                     </div>
                     <div className="h-5 w-[1px] bg-slate-200"></div>
@@ -73,7 +73,7 @@ const Navbar = () => {
                 <div className="flex flex-col p-6 space-y-5">
                     <Link to="/" className="text-lg font-bold text-slate-900 border-b border-slate-50 pb-2" onClick={() => setIsOpen(false)}>home</Link>
                     <Link to="/blogs" className="text-lg font-bold text-slate-900 border-b border-slate-50 pb-2" onClick={() => setIsOpen(false)}>archive</Link>
-                    {user && <Link to="/create" className="text-lg font-bold text-slate-900 border-b border-slate-50 pb-2" onClick={() => setIsOpen(false)}>write</Link>}
+                    {user && <Link to="/create" className="text-lg font-bold text-slate-900 border-b border-slate-50 pb-2" onClick={() => setIsOpen(false)}>Create Blog</Link>}
                     
                     <div className="pt-2 flex flex-col gap-4">
                         {user ? (
